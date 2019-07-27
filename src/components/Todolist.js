@@ -66,24 +66,40 @@ class Todolist extends React.Component {
             />
           ))}
         </div>
-        <button onClick={() => this.updateDisplay("active")} className="btn">
+        <button
+          onClick={() => this.updateDisplay("all")}
+          className="btn"
+          style={{
+            background: this.state.display === "all" ? "#2471a3" : "#d4e6f1",
+            color: this.state.display === "all" ? "white" : "#2471a3"
+          }}
+        >
+          Show All: {this.state.todos.length}
+        </button>
+        <button
+          onClick={() => this.updateDisplay("active")}
+          className="btn"
+          style={{
+            marginLeft: "10px",
+            background: this.state.display === "active" ? "#2471a3" : "#d4e6f1",
+            color: this.state.display === "active" ? "white" : "#2471a3"
+          }}
+        >
           Show Active:{" "}
           {this.state.todos.filter(todo => todo.complete === false).length}
         </button>
         <button
           onClick={() => this.updateDisplay("completed")}
           className="btn"
-          style={{ marginLeft: "10px" }}
+          style={{
+            marginLeft: "10px",
+            background:
+              this.state.display === "completed" ? "#2471a3" : "#d4e6f1",
+            color: this.state.display === "completed" ? "white" : "#2471a3"
+          }}
         >
           Show Completed:{" "}
           {this.state.todos.filter(todo => todo.complete).length}
-        </button>
-        <button
-          onClick={() => this.updateDisplay("all")}
-          className="btn"
-          style={{ marginLeft: "10px" }}
-        >
-          Show All: {this.state.todos.length}
         </button>
       </div>
     );
