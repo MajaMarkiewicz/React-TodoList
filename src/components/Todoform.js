@@ -27,14 +27,35 @@ class Todoform extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        onSubmit={this.handleSubmit}
+        style={{
+          display: "flex",
+          marginBottom: "40px"
+        }}
+      >
         <input
           name={"text"}
           value={this.state.text}
           onChange={this.handleChange}
-          placeholder="todo..."
+          placeholder="Your task name"
+          style={{
+            flex: "10 1",
+            padding: "5px",
+            border: "1px solid #d4e6f1"
+          }}
         />
-        <button onClick={this.handleSubmit}>add todo</button>
+        <input
+          type="submit"
+          value="Add task"
+          className="btn"
+          onClick={this.handleSubmit}
+          style={{
+            flex: "1 1",
+            borderBottomLeftRadius: "0px",
+            borderTopLeftRadius: "0px"
+          }}
+        />
       </form>
     );
   }

@@ -1,18 +1,17 @@
 import React from "react";
 
 export default props => (
-  <div style={{ display: "flex", justifyContent: "center" }}>
-    <div
+  <div className="todo-container">
+    <label
       style={{
-        textDecoration: props.todo.complete ? "line-through" : ""
+        textDecoration: props.todo.complete ? "line-through" : "",
+        marginRight: "10px"
       }}
-      onClick={props.onComplete}
     >
-      {props.todo.text}
-    </div>
-    <button onClick={props.onComplete}>
-      {props.todo.complete ? "Activate" : "Complete"}
+      <input type="checkbox" onClick={props.onComplete} /> {props.todo.text}
+    </label>
+    <button onClick={props.onDelete} className="btn">
+      Delete
     </button>
-    <button onClick={props.onDelete}>Delete</button>
   </div>
 );

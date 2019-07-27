@@ -54,25 +54,35 @@ class Todolist extends React.Component {
     }
 
     return (
-      <div>
+      <div className="main-container">
         <Todoform onSubmit={this.addTodo} />
-        {displayedTodos.map(todo => (
-          <Todo
-            key={todo.id}
-            onComplete={() => this.handleComplete(todo.id)}
-            onDelete={() => this.handleDelete(todo.id)}
-            todo={todo}
-          />
-        ))}
-        <button onClick={() => this.updateDisplay("active")}>
+        <div className="todos-container">
+          {displayedTodos.map(todo => (
+            <Todo
+              key={todo.id}
+              onComplete={() => this.handleComplete(todo.id)}
+              onDelete={() => this.handleDelete(todo.id)}
+              todo={todo}
+            />
+          ))}
+        </div>
+        <button onClick={() => this.updateDisplay("active")} className="btn">
           Show Active:{" "}
           {this.state.todos.filter(todo => todo.complete === false).length}
         </button>
-        <button onClick={() => this.updateDisplay("completed")}>
+        <button
+          onClick={() => this.updateDisplay("completed")}
+          className="btn"
+          style={{ marginLeft: "10px" }}
+        >
           Show Completed:{" "}
           {this.state.todos.filter(todo => todo.complete).length}
         </button>
-        <button onClick={() => this.updateDisplay("all")}>
+        <button
+          onClick={() => this.updateDisplay("all")}
+          className="btn"
+          style={{ marginLeft: "10px" }}
+        >
           Show All: {this.state.todos.length}
         </button>
       </div>
